@@ -1,261 +1,427 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
 
-  <title>منوی نخودچی</title>
+  <title>نخودچی | منوی دیجیتال</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="page">
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
     <header class="header">
 
+      <!-- LOGO -->
       <div class="logo-box">
-        <!-- بعداً لوگو را جایگزین این قسمت کن -->
-        <img src="images/logo.png" alt="لوگوی نخودچی"
-             onerror="this.style.display='none'">
+        <img
+          src="images/logo.png"
+          alt="لوگوی نخودچی"
+          onerror="this.style.display='none'"
+        >
         <span class="logo-placeholder">ن</span>
       </div>
 
+      <!-- BRAND NAME -->
       <div class="brand">
         <h1 data-fa="نخودچی" data-en="NOHOTCHI">نخودچی</h1>
         <p data-fa="منوی دیجیتال" data-en="DIGITAL MENU">منوی دیجیتال</p>
       </div>
 
-      <button class="language-btn" id="languageBtn">
+      <!-- LANGUAGE -->
+      <button class="language-btn" id="languageBtn" type="button">
         EN
       </button>
 
     </header>
 
-    <!-- SEARCH -->
+
+    <!-- ================= SEARCH ================= -->
     <div class="search-box">
+
       <span class="search-icon">⌕</span>
 
       <input
         type="search"
         id="searchInput"
+        autocomplete="off"
         placeholder="جستجوی غذا..."
         data-placeholder-fa="جستجوی غذا..."
         data-placeholder-en="Search menu..."
       >
+
     </div>
 
-    <!-- CATEGORY -->
+
+    <!-- ================= CATEGORIES ================= -->
     <nav class="categories" id="categories">
 
-      <button class="category active" data-category="all">
+      <button class="category active" type="button" data-category="all">
         <span class="cat-icon">🍽️</span>
         <span data-fa="همه" data-en="All">همه</span>
       </button>
 
-      <button class="category" data-category="pasta">
+      <button class="category" type="button" data-category="pasta">
         <span class="cat-icon">🍝</span>
         <span data-fa="پاستا" data-en="Pasta">پاستا</span>
       </button>
 
-      <button class="category" data-category="pizza">
+      <button class="category" type="button" data-category="pizza">
         <span class="cat-icon">🍕</span>
         <span data-fa="پیتزا" data-en="Pizza">پیتزا</span>
       </button>
 
-      <button class="category" data-category="sandwich">
+      <button class="category" type="button" data-category="sandwich">
         <span class="cat-icon">🥪</span>
         <span data-fa="ساندویچ" data-en="Sandwich">ساندویچ</span>
       </button>
 
-      <button class="category" data-category="drink">
+      <button class="category" type="button" data-category="drink">
         <span class="cat-icon">🥤</span>
         <span data-fa="نوشیدنی" data-en="Drinks">نوشیدنی</span>
       </button>
 
     </nav>
 
-    <!-- SECTION TITLE -->
-    <div class="section-heading">
+
+    <!-- ================= MENU TITLE ================= -->
+    <div class="section-heading main-heading">
       <h2 data-fa="منوی ما" data-en="Our Menu">منوی ما</h2>
       <span class="yellow-line"></span>
     </div>
 
-    <!-- FOOD LIST -->
-    <main class="food-grid" id="foodList">
 
-      <!-- PASTA -->
-      <article class="food-card" data-category="pasta">
+    <!-- ================= PASTA ================= -->
+    <section class="menu-section" id="pasta" data-section="pasta">
 
-        <div class="food-image">
-          <img src="images/pasta1.jpg" alt="پاستا آلفردو">
-        </div>
+      <div class="section-heading">
+        <h2 data-fa="پاستا" data-en="Pasta">پاستا</h2>
+        <span class="section-count">PASTA</span>
+      </div>
 
-        <div class="food-details">
-          <h3 data-fa="پاستا آلفردو" data-en="Alfredo Pasta">
-            پاستا آلفردو
-          </h3>
+      <div class="food-grid">
 
-          <p
-            data-fa="مرغ، قارچ و سس خامه‌ای"
-            data-en="Chicken, mushroom and creamy sauce">
-            مرغ، قارچ و سس خامه‌ای
-          </p>
+        <!-- PASTA 1 -->
+        <article class="food-card">
 
-          <div class="price">
-            <span data-fa="۴۸۰,۰۰۰ تومان" data-en="480,000 Toman">
-              ۴۸۰,۰۰۰ تومان
-            </span>
+          <div class="food-image">
+            <img
+              src="images/pasta1.jpg"
+              alt="پاستا آلفردو"
+              loading="lazy"
+            >
           </div>
-        </div>
 
-      </article>
+          <div class="food-details">
 
-      <article class="food-card" data-category="pasta">
+            <h3
+              data-fa="پاستا آلفردو"
+              data-en="Chicken Alfredo Pasta"
+            >
+              پاستا آلفردو
+            </h3>
 
-        <div class="food-image">
-          <img src="images/pasta2.jpg" alt="پاستا پنه">
-        </div>
+            <p
+              data-fa="مرغ، قارچ و سس خامه‌ای"
+              data-en="Chicken, mushroom and creamy sauce"
+            >
+              مرغ، قارچ و سس خامه‌ای
+            </p>
 
-        <div class="food-details">
-          <h3 data-fa="پاستا پنه" data-en="Penne Pasta">پاستا پنه</h3>
+            <div class="price">
+              <span
+                data-fa="۴۸۰,۰۰۰ تومان"
+                data-en="480,000 Toman"
+              >
+                ۴۸۰,۰۰۰ تومان
+              </span>
+            </div>
 
-          <p
-            data-fa="پنه، سس مخصوص و پنیر پارمزان"
-            data-en="Penne, special sauce and parmesan">
-            پنه، سس مخصوص و پنیر پارمزان
-          </p>
-
-          <div class="price">
-            <span data-fa="۴۲۰,۰۰۰ تومان" data-en="420,000 Toman">
-              ۴۲۰,۰۰۰ تومان
-            </span>
           </div>
-        </div>
+        </article>
 
-      </article>
 
-      <!-- PIZZA -->
-      <article class="food-card" data-category="pizza">
+        <!-- PASTA 2 -->
+        <article class="food-card">
 
-        <div class="food-image">
-          <img src="images/pizza1.jpg" alt="پیتزا پپرونی">
-        </div>
-
-        <div class="food-details">
-          <h3 data-fa="پیتزا پپرونی" data-en="Pepperoni Pizza">
-            پیتزا پپرونی
-          </h3>
-          <p
-            data-fa="پپرونی، پنیر موزارلا و سس مخصوص"
-            data-en="Pepperoni, mozzarella and special sauce">
-            پپرونی، پنیر موزارلا و سس مخصوص
-          </p>
-
-          <div class="price">
-            <span data-fa="۵۵۰,۰۰۰ تومان" data-en="550,000 Toman">
-              ۵۵۰,۰۰۰ تومان
-            </span>
+          <div class="food-image">
+            <img
+              src="images/pasta2.jpg"
+              alt="پاستا پنه"
+              loading="lazy"
+            >
           </div>
-        </div>
 
-      </article>
+          <div class="food-details">
 
-      <article class="food-card" data-category="pizza">
+            <h3
+              data-fa="پاستا پنه"
+              data-en="Penne Pasta"
+            >
+              پاستا پنه
+            </h3>
 
-        <div class="food-image">
-          <img src="images/pizza2.jpg" alt="پیتزا سبزیجات">
-        </div>
+            <p
+              data-fa="پنه، سس مخصوص و پنیر پارمزان"
+              data-en="Penne, special sauce and parmesan"
+            >
+              پنه، سس مخصوص و پنیر پارمزان
+            </p>
 
-        <div class="food-details">
-          <h3 data-fa="پیتزا سبزیجات" data-en="Vegetable Pizza">
-            پیتزا سبزیجات
-          </h3>
+            <div class="price">
+              <span
+                data-fa="۴۲۰,۰۰۰ تومان"
+                data-en="420,000 Toman"
+              >
+                ۴۲۰,۰۰۰ تومان
+              </span>
+            </div>
 
-          <p
-            data-fa="سبزیجات تازه، پنیر و سس ایتالیایی"
-            data-en="Fresh vegetables, cheese and Italian sauce">
-            سبزیجات تازه، پنیر و سس ایتالیایی
-          </p>
-
-          <div class="price">
-            <span data-fa="۴۶۰,۰۰۰ تومان" data-en="460,000 Toman">
-              ۴۶۰,۰۰۰ تومان
-            </span>
           </div>
-        </div>
+        </article>
 
-      </article>
+      </div>
+    </section>
 
-      <!-- SANDWICH -->
-      <article class="food-card" data-category="sandwich">
 
-        <div class="food-image">
-          <img src="images/sandwich1.jpg" alt="ساندویچ مرغ">
-        </div>
+    <!-- ================= PIZZA ================= -->
+    <section class="menu-section" id="pizza" data-section="pizza">
 
-        <div class="food-details">
-          <h3 data-fa="ساندویچ مرغ" data-en="Chicken Sandwich">
-            ساندویچ مرغ
-          </h3>
+      <div class="section-heading">
+        <h2 data-fa="پیتزا" data-en="Pizza">پیتزا</h2>
+        <span class="section-count">PIZZA</span>
+      </div>
 
-          <p
-            data-fa="مرغ گریل، کاهو و سس دست‌ساز"
-            data-en="Grilled chicken, lettuce and house sauce">
-            مرغ گریل، کاهو و سس دست‌ساز
-          </p>
+      <div class="food-grid">
 
-          <div class="price">
-            <span data-fa="۳۶۰,۰۰۰ تومان" data-en="360,000 Toman">
-              ۳۶۰,۰۰۰ تومان
-            </span>
+        <!-- PIZZA 1 -->
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="images/pizza1.jpg"
+              alt="پیتزا پپرونی"
+              loading="lazy"
+            >
           </div>
-        </div>
 
-      </article>
+          <div class="food-details">
 
-      <!-- DRINK -->
-      <article class="food-card" data-category="drink">
+            <h3
+              data-fa="پیتزا پپرونی"
+              data-en="Pepperoni Pizza"
+            >
+              پیتزا پپرونی
+            </h3>
 
-        <div class="food-image">
-          <img src="images/drink1.jpg" alt="لیموناد">
-        </div>
+            <p
+              data-fa="پپرونی، پنیر موزارلا و سس مخصوص"
+              data-en="Pepperoni, mozzarella and special sauce"
+            >
+              پپرونی، پنیر موزارلا و سس مخصوص
+            </p>
 
-        <div class="food-details">
-          <h3 data-fa="لیموناد" data-en="Lemonade">لیموناد</h3>
+            <div class="price">
+              <span
+                data-fa="۵۵۰,۰۰۰ تومان"
+                data-en="550,000 Toman"
+              >
+                ۵۵۰,۰۰۰ تومان
+              </span>
+            </div>
 
-          <p
-            data-fa="لیموی تازه و نوشیدنی خنک"
-            data-en="Fresh lemon and refreshing drink">
-            لیموی تازه و نوشیدنی خنک
-          </p>
-
-          <div class="price">
-            <span data-fa="۱۲۰,۰۰۰ تومان" data-en="120,000 Toman">
-              ۱۲۰,۰۰۰ تومان
-            </span>
           </div>
-        </div>
+        </article>
 
-      </article>
 
-    </main>
+        <!-- PIZZA 2 -->
+        <article class="food-card">
 
-    <!-- NO RESULTS -->
-    <div id="noResults" data-fa="موردی پیدا نشد" data-en="No items found">
+          <div class="food-image">
+            <img
+              src="images/pizza2.jpg"
+              alt="پیتزا سبزیجات"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="food-details">
+
+            <h3
+              data-fa="پیتزا سبزیجات"
+              data-en="Vegetable Pizza"
+            >
+              پیتزا سبزیجات
+            </h3>
+
+            <p
+              data-fa="سبزیجات تازه، پنیر و سس ایتالیایی"
+              data-en="Fresh vegetables, cheese and Italian sauce"
+            >
+              سبزیجات تازه، پنیر و سس ایتالیایی
+            </p>
+
+            <div class="price">
+              <span
+                data-fa="۴۶۰,۰۰۰ تومان"
+                data-en="460,000 Toman"
+              >
+                ۴۶۰,۰۰۰ تومان
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SANDWICH ================= -->
+    <section class="menu-section" id="sandwich" data-section="sandwich">
+
+      <div class="section-heading">
+        <h2 data-fa="ساندویچ" data-en="Sandwiches">ساندویچ</h2>
+        <span class="section-count">SANDWICH</span>
+      </div>
+
+      <div class="food-grid">
+
+        <!-- SANDWICH 1 -->
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="images/sandwich1.jpg"
+              alt="ساندویچ مرغ"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="food-details">
+
+            <h3
+              data-fa="ساندویچ مرغ"
+              data-en="Chicken Sandwich"
+            >
+              ساندویچ مرغ
+            </h3>
+
+            <p
+              data-fa="مرغ گریل، کاهو و سس دست‌ساز"
+              data-en="Grilled chicken, lettuce and house sauce"
+            >
+              مرغ گریل، کاهو و سس دست‌ساز
+            </p>
+
+            <div class="price">
+              <span
+                data-fa="۳۶۰,۰۰۰ تومان"
+                data-en="360,000 Toman"
+              >
+                ۳۶۰,۰۰۰ تومان
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ================= DRINKS ================= -->
+    <section class="menu-section" id="drink" data-section="drink">
+
+      <div class="section-heading">
+        <h2 data-fa="نوشیدنی" data-en="Drinks">نوشیدنی</h2>
+        <span class="section-count">DRINKS</span>
+      </div>
+
+      <div class="food-grid">
+
+        <!-- DRINK 1 -->
+        <article class="food-card">
+
+          <div class="food-image">
+            <img
+              src="images/drink1.jpg"
+              alt="لیموناد"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="food-details">
+
+            <h3
+              data-fa="لیموناد"
+              data-en="Lemonade"
+            >
+              لیموناد
+            </h3>
+
+            <p
+              data-fa="لیموی تازه و نوشیدنی خنک"
+              data-en="Fresh lemon and refreshing drink"
+            >
+              لیموی تازه و نوشیدنی خنک
+            </p>
+
+            <div class="price">
+              <span
+                data-fa="۱۲۰,۰۰۰ تومان"
+                data-en="120,000 Toman"
+              >
+                ۱۲۰,۰۰۰ تومان
+              </span>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ================= NO RESULTS ================= -->
+    <div
+      id="noResults"
+      data-fa="موردی پیدا نشد"
+      data-en="No items found"
+    >
       موردی پیدا نشد
     </div>
 
-    <!-- FOOTER -->
+
+    <!-- ================= FOOTER ================= -->
     <footer>
-      <p data-fa="نخودچی | طعم خوب، حال خوب" data-en="NOHOTCHI | Good taste, good mood">
-        نخودچی | طعم خوب، حال خوب
+
+      <div class="footer-logo">نخودچی</div>
+
+      <p
+        data-fa="طعم خوب، حال خوب"
+        data-en="Good taste, good mood"
+      >
+        طعم خوب، حال خوب
       </p>
+
+      <span class="footer-copy">
+        © NOHOTCHI
+      </span>
+
     </footer>
 
   </div>
 
+
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
 
 </body>
