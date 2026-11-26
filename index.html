@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منوی رستوران</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- صفحه شروع انیمیشن -->
+  <div id="intro">
+    <h1>نخودچی</h1>
+    <p>طعم یک تجربه متفاوت</p>
+  </div>
+
+  <!-- محتوای اصلی منو -->
+  <main id="menu" class="hidden">
+
+    <header class="restaurant-header">
+      <p class="subtitle">خوش آمدید به </p>
+      <h1>رستوران نخودچی </h1>
+      <p>طعم‌هایی که فراموش نمی‌شوند</p>
+    </header>
+
+    <!-- دسته‌بندی غذاها -->
+    <nav class="categories">
+      <button class="category active" data-category="all">همه</button>
+      <button class="category" data-category="pasta">پاستا</button>
+      <button class="category" data-category="pizza">پیتزا</button>
+      <button class="category" data-category="sandwich">ساندویچ</button>
+    </nav>
+
+    <!-- لیست غذاها -->
+    <section class="food-list" id="foodList">
+
+      <!-- پاستا -->
+      <article class="food-card" data-category="pasta">
+        <img src="images/pasta.jpg" alt="پاستا">
+        <div class="food-info">
+          <h3>پاستا آلفردو</h3>
+          <p>پاستا، مرغ گریل، سس خامه‌ای و قارچ</p>
+          <span class="price">۴۸۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+      <article class="food-card" data-category="pasta">
+        <img src="images/pasta2.jpg" alt="پاستا">
+        <div class="food-info">
+          <h3>پاستا پنه</h3>
+          <p>پنه، سس مخصوص، پنیر پارمزان و ریحان</p>
+          <span class="price">۴۲۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+      <!-- پیتزا -->
+      <article class="food-card" data-category="pizza">
+          <img src="images/pizza.jpg" alt="پیتزا پپرونی">        <div class="food-info">
+          <h3>پیتزا پپرونی</h3>
+          <p>پپرونی، پنیر موزارلا و سس مخصوص</p>
+          <span class="price">۵۵۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+      <article class="food-card" data-category="pizza">
+        <img src="images/pizza2.jpg" alt="پیتزا">
+        <div class="food-info">
+          <h3>پیتزا مارگاریتا</h3>
+          <p>گوجه تازه، موزارلا، ریحان و سس ایتالیایی</p>
+          <span class="price">۴۶۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+      <!-- ساندویچ -->
+      <article class="food-card" data-category="sandwich">
+        <img src="images/sandwich.jpg" alt="ساندویچ">
+        <div class="food-info">
+          <h3>ساندویچ مرغ</h3>
+          <p>مرغ گریل، کاهو، گوجه و سس دست‌ساز</p>
+          <span class="price">۳۶۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+      <article class="food-card" data-category="sandwich">
+        <img src="images/burger.jpg" alt="برگر">
+        <div class="food-info">
+          <h3>برگر مخصوص</h3>
+          <p>گوشت ۱۰۰٪، پنیر چدار و سس مخصوص</p>
+          <span class="price">۴۵۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      <p>رستوران نخودچی</p>
+      <p>لحظات خوش، طعم‌های ماندگار</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

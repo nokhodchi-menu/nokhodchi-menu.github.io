@@ -1,0 +1,410 @@
+@font-face {
+  font-family: 'Shabnam';
+  src: url('fonts/Shabnam.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* تنظیمات کلی */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'shabnam', sans-serif;
+  background: #111111;
+  color: #ffffff;
+}
+
+/* انیمیشن شروع */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #111111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: introExit 1s ease 2.5s forwards;
+}
+
+#intro h1 {
+  font-size: 52px;
+  letter-spacing: 8px;
+  color: #d7a85c;
+  animation: logoEnter 1.2s ease;
+}
+
+#intro p {
+  margin-top: 15px;
+  color: #eeeeee;
+  animation: logoEnter 1.5s ease;
+}
+
+@keyframes logoEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* پنهان کردن منو هنگام شروع */
+.hidden {
+  opacity: 0;
+}
+
+/* نمایش منو بعد از شروع */
+#menu {
+  animation: menuEnter 1s ease 3s forwards;
+}
+
+@keyframes menuEnter {
+  to {
+    opacity: 1;
+  }
+}
+
+/* هدر رستوران */
+.restaurant-header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+.restaurant-header .subtitle {
+  color: #d7a85c;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.restaurant-header h1 {
+  font-size: 27px;
+  margin: 15px 0;
+  letter-spacing: 2px;
+}
+
+.restaurant-header p:last-child {
+  color: #b9b9b9;
+  font-size: 14px;
+}
+
+/* دسته‌بندی‌ها */
+.categories {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  background: #111111;
+  z-index: 10;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex-shrink: 0;
+  border: 1px solid #383838;
+  background: #1c1c1c;
+  color: #ffffff;
+  padding: 12px 23px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category.active {
+  background: #d7a85c;
+  color: #111111;
+  border-color: #d7a85c;
+}
+
+/* لیست غذاها */
+.food-list {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* کارت هر غذا */
+.food-card {
+  background: #1c1c1c;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.food-info {
+  padding: 18px;
+}
+
+.food-info h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.food-info p {
+  color: #bdbdbd;
+  font-size: 13px;
+  line-height: 1.9;
+  min-height: 48px;
+}
+
+.price {
+  display: block;
+  color: #d7a85c;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* فوتر */
+footer {
+  text-align: center;
+  padding: 40px 15px;
+  color: #999999;
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+/* موبایل */
+@media (max-width: 600px) {
+
+  .restaurant-header {
+    padding-top: 35px;
+  }
+
+  .restaurant-header h1 {
+    font-size: 22px;
+  }
+
+  .food-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 15px;
+  }
+
+  .food-card {
+    display: flex;
+    align-items: stretch;
+    min-height: 145px;
+  }
+
+  .food-card img {
+    width: 42%;
+    height: auto;
+    min-height: 145px;
+    object-fit: cover;
+  }
+
+  .food-info {
+    flex: 1;
+    padding: 14px;
+  }
+
+  .food-info h3 {
+    font-size: 15px;
+  }
+
+  .food-info p {
+    font-size: 11px;
+    min-height: 0;
+  }
+
+  .price {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
+.category {
+  font-family: 'Shabnam', sans-serif;
+}
+/* ===== طراحی جدید منوی نخودچی ===== */
+
+body {
+  background: #070a0e;
+  font-family: 'Shabnam', sans-serif;
+}
+
+/* دسته بندی ها */
+.categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 35px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px 15px;
+  background: #070a0e;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  background: transparent;
+  border: none;
+  color: #858991;
+  border-radius: 0;
+  padding: 8px 0;
+  font-family: 'Shabnam', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+}
+
+.category.active {
+  background: transparent;
+  color: white;
+}
+
+.category.active::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #e52370;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* چیدمان دو ستونه غذاها */
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 18px;
+  padding: 25px 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* کارت غذا */
+.food-card {
+  background: #0e171f;
+  border: none;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: visible;
+  min-width: 0;
+  margin-top: 35px;
+  padding-bottom: 20px;
+}
+
+/* تصویر گرد و شناور */
+.food-card img {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -35px;
+  position: relative;
+  z-index: 2;
+}
+
+/* اطلاعات غذا */
+.food-info {
+  padding: 15px 10px 5px;
+  width: 100%;
+}
+
+.food-info h3 {
+  font-family: 'Shabnam', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.food-info p {
+  font-family: 'Shabnam', sans-serif;
+  color: #777f88;
+  font-size: 12px;
+  line-height: 1.8;
+  min-height: 40px;
+}
+
+/* قیمت صورتی */
+.price {
+  display: inline-block;
+  background: #e52370;
+  color: white;
+  font-family: 'Shabnam', sans-serif;
+  border-radius: 12px;
+  padding: 10px 13px;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* هدر */
+.restaurant-header {
+  padding-top: 35px;
+}
+
+.restaurant-header h1 {
+  font-family: 'Shabnam', sans-serif;
+}
+
+/* موبایل کوچک */
+@media (max-width: 380px) {
+  .food-list {
+    gap: 28px 12px;
+    padding: 20px 12px;
+  }
+
+  .food-card img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .food-info h3 {
+    font-size: 12px;
+  }
+
+  .food-info p {
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+}
