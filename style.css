@@ -686,3 +686,16 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
