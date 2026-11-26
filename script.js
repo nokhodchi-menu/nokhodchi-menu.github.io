@@ -1,33 +1,95 @@
-const buttons = document.querySelectorAll(".category");
-const foods = document.querySelectorAll(".food-card");
+const categoryButtons = document.querySelectorAll(".category");
+const foodCards = document.querySelectorAll(".food-card");
+const searchInput = document.getElementById("searchInput");
+const languageBtn = document.getElementById("languageBtn");
+const noResults = document.getElementById("noResults");
 
-buttons.forEach(button => {
+let selectedCategory = "all";
+let currentLanguage = "fa";
 
-  button.addEventListener("click", () => {
+/* ===== FILTER MENU ===== */
+function filterMenu() {
+  const query = searchInput.value.trim().toLowerCase();
+  let visibleCount = 0;
 
-    // حذف حالت فعال از همه دسته‌ها
-    buttons.forEach(btn => btn.classList.remove("active"));
+  foodCards.forEach(card => {
+    const category = card.dataset.category;
 
-    // فعال کردن دسته انتخاب‌شده
-    button.classList.add("active");
+    const title = card.querySelector("h3");
+    const description = card.querySelector("p");
 
-    // دریافت دسته
-    const selectedCategory = button.dataset.category;
+    const searchText = (
+      title.innerText + " " +
+      description.innerText + " " +
+      (title.dataset.fa || "") + " " +
+      (title.dataset.en || "") + " " +
+      (description.dataset.fa || "") + " " +
+      (description.dataset.en || "")
+    ).toLowerCase();
 
-    // فیلتر غذاها
-    foods.forEach(food => {
+    const categoryMatch =
+      selectedCategory === "all" ||
+      category === selectedCategory;
 
-      if (
-        selectedCategory === "all" ||
-        food.dataset.category === selectedCategory
-      ) {
-        food.style.display = "";
-      } else {
-        food.style.display = "none";
-      }
+    const searchMatch = searchText.includes(query);
 
-    });
-
+    if (categoryMatch && searchMatch) {
+      card.style.display = "";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
   });
 
+  noResults.style.display =
+    visibleCount === 0 ? "block" : "none";
+}
+
+/* ===== CATEGORY BUTTONS ===== */
+categoryButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    categoryButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    selectedCategory = button.dataset.category;
+
+    filterMenu();
+  });
 });
+
+/* ===== SEARCH ===== */
+searchInput.addEventListener("input", filterMenu);
+
+/* ===== LANGUAGE SWITCH ===== */
+languageBtn.addEventListener("click", () => {
+  currentLanguage =
+    currentLanguage === "fa" ? "en" : "fa";
+
+  document.documentElement.lang = currentLanguage;
+
+  document.documentElement.dir =
+    currentLanguage === "fa" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-fa][data-en]").forEach(element => {
+    element.textContent =
+      currentLanguage === "fa"
+        ? element.dataset.fa
+        : element.dataset.en;
+  });
+
+  searchInput.placeholder =
+    currentLanguage === "fa"
+      ? searchInput.dataset.placeholderFa
+      : searchInput.dataset.placeholderEn;
+
+  languageBtn.textContent =
+    currentLanguage === "fa" ? "EN" : "FA";
+
+  filterMenu();
+});
+
+/* ===== INITIAL ===== */
+filterMenu();
