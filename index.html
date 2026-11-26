@@ -1,4 +1,153 @@
-<p
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>منوی نخودچی</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div class="logo-box">
+        <!-- بعداً لوگو را جایگزین این قسمت کن -->
+        <img src="images/logo.png" alt="لوگوی نخودچی"
+             onerror="this.style.display='none'">
+        <span class="logo-placeholder">ن</span>
+      </div>
+
+      <div class="brand">
+        <h1 data-fa="نخودچی" data-en="NOHOTCHI">نخودچی</h1>
+        <p data-fa="منوی دیجیتال" data-en="DIGITAL MENU">منوی دیجیتال</p>
+      </div>
+
+      <button class="language-btn" id="languageBtn">
+        EN
+      </button>
+
+    </header>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="جستجوی غذا..."
+        data-placeholder-fa="جستجوی غذا..."
+        data-placeholder-en="Search menu..."
+      >
+    </div>
+
+    <!-- CATEGORY -->
+    <nav class="categories" id="categories">
+
+      <button class="category active" data-category="all">
+        <span class="cat-icon">🍽️</span>
+        <span data-fa="همه" data-en="All">همه</span>
+      </button>
+
+      <button class="category" data-category="pasta">
+        <span class="cat-icon">🍝</span>
+        <span data-fa="پاستا" data-en="Pasta">پاستا</span>
+      </button>
+
+      <button class="category" data-category="pizza">
+        <span class="cat-icon">🍕</span>
+        <span data-fa="پیتزا" data-en="Pizza">پیتزا</span>
+      </button>
+
+      <button class="category" data-category="sandwich">
+        <span class="cat-icon">🥪</span>
+        <span data-fa="ساندویچ" data-en="Sandwich">ساندویچ</span>
+      </button>
+
+      <button class="category" data-category="drink">
+        <span class="cat-icon">🥤</span>
+        <span data-fa="نوشیدنی" data-en="Drinks">نوشیدنی</span>
+      </button>
+
+    </nav>
+
+    <!-- SECTION TITLE -->
+    <div class="section-heading">
+      <h2 data-fa="منوی ما" data-en="Our Menu">منوی ما</h2>
+      <span class="yellow-line"></span>
+    </div>
+
+    <!-- FOOD LIST -->
+    <main class="food-grid" id="foodList">
+
+      <!-- PASTA -->
+      <article class="food-card" data-category="pasta">
+
+        <div class="food-image">
+          <img src="images/pasta1.jpg" alt="پاستا آلفردو">
+        </div>
+
+        <div class="food-details">
+          <h3 data-fa="پاستا آلفردو" data-en="Alfredo Pasta">
+            پاستا آلفردو
+          </h3>
+
+          <p
+            data-fa="مرغ، قارچ و سس خامه‌ای"
+            data-en="Chicken, mushroom and creamy sauce">
+            مرغ، قارچ و سس خامه‌ای
+          </p>
+
+          <div class="price">
+            <span data-fa="۴۸۰,۰۰۰ تومان" data-en="480,000 Toman">
+              ۴۸۰,۰۰۰ تومان
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="food-card" data-category="pasta">
+
+        <div class="food-image">
+          <img src="images/pasta2.jpg" alt="پاستا پنه">
+        </div>
+
+        <div class="food-details">
+          <h3 data-fa="پاستا پنه" data-en="Penne Pasta">پاستا پنه</h3>
+
+          <p
+            data-fa="پنه، سس مخصوص و پنیر پارمزان"
+            data-en="Penne, special sauce and parmesan">
+            پنه، سس مخصوص و پنیر پارمزان
+          </p>
+
+          <div class="price">
+            <span data-fa="۴۲۰,۰۰۰ تومان" data-en="420,000 Toman">
+              ۴۲۰,۰۰۰ تومان
+            </span>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- PIZZA -->
+      <article class="food-card" data-category="pizza">
+
+        <div class="food-image">
+          <img src="images/pizza1.jpg" alt="پیتزا پپرونی">
+        </div>
+
+        <div class="food-details">
+          <h3 data-fa="پیتزا پپرونی" data-en="Pepperoni Pizza">
+            پیتزا پپرونی
+          </h3>
+          <p
             data-fa="پپرونی، پنیر موزارلا و سس مخصوص"
             data-en="Pepperoni, mozzarella and special sauce">
             پپرونی، پنیر موزارلا و سس مخصوص
