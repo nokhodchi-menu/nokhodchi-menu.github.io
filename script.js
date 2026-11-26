@@ -1,75 +1,126 @@
+
 const categoryButtons = document.querySelectorAll(".category");
-const foodCards = document.querySelectorAll(".food-card");
+const sections = document.querySelectorAll(".menu-section");
 const searchInput = document.getElementById("searchInput");
 const languageBtn = document.getElementById("languageBtn");
 const noResults = document.getElementById("noResults");
 
-let selectedCategory = "all";
 let currentLanguage = "fa";
 
-/* ===== FILTER MENU ===== */
-function filterMenu() {
-  const query = searchInput.value.trim().toLowerCase();
-  let visibleCount = 0;
-
-  foodCards.forEach(card => {
-    const category = card.dataset.category;
-
-    const title = card.querySelector("h3");
-    const description = card.querySelector("p");
-
-    const searchText = (
-      title.innerText + " " +
-      description.innerText + " " +
-      (title.dataset.fa || "") + " " +
-      (title.dataset.en || "") + " " +
-      (description.dataset.fa || "") + " " +
-      (description.dataset.en || "")
-    ).toLowerCase();
-
-    const categoryMatch =
-      selectedCategory === "all" ||
-      category === selectedCategory;
-
-    const searchMatch = searchText.includes(query);
-
-    if (categoryMatch && searchMatch) {
-      card.style.display = "";
-      visibleCount++;
-    } else {
-      card.style.display = "none";
-    }
+/* SET ACTIVE CATEGORY */
+function setActiveCategory(category) {
+  categoryButtons.forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.category === category
+    );
   });
 
-  noResults.style.display =
-    visibleCount === 0 ? "block" : "none";
+  const activeButton = document.querySelector(
+    `.category[data-category="${category}"]`
+  );
+
+  if (activeButton) {
+    activeButton.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center"
+    });
+  }
 }
 
-/* ===== CATEGORY BUTTONS ===== */
+/* CLICK CATEGORY: SCROLL TO SECTION */
 categoryButtons.forEach(button => {
   button.addEventListener("click", () => {
-    categoryButtons.forEach(btn =>
-      btn.classList.remove("active")
-    );
+    const category = button.dataset.category;
 
-    button.classList.add("active");
+    if (category === "all") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
 
-    selectedCategory = button.dataset.category;
+      setActiveCategory("all");
+      return;
+    }
 
-    filterMenu();
+    const target = document.getElementById(category);
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    setActiveCategory(category);
   });
 });
 
-/* ===== SEARCH ===== */
-searchInput.addEventListener("input", filterMenu);
+/* SCROLL OBSERVER */
+const observer = new IntersectionObserver(entries => {
+  const visibleSections = entries
+    .filter(entry => entry.isIntersecting)
+    .sort((a, b) =>
+      b.intersectionRatio - a.intersectionRatio
+    );
 
-/* ===== LANGUAGE SWITCH ===== */
+  if (visibleSections.length > 0) {
+    setActiveCategory(
+      visibleSections[0].target.dataset.section
+    );
+  }
+}, {
+  root: null,
+  rootMargin: "-22% 0px -58% 0px",
+  threshold: [0, 0.1, 0.25, 0.5]
+});
+
+sections.forEach(section => observer.observe(section));
+
+/* SEARCH */
+function searchMenu() {
+  const query = searchInput.value.trim().toLowerCase();
+  let total = 0;
+
+  sections.forEach(section => {
+    let sectionCount = 0;
+
+    const cards = section.querySelectorAll(".food-card");
+
+    cards.forEach(card => {
+      const searchable = [
+        card.querySelector("h3")?.innerText || "",
+        card.querySelector("p")?.innerText || "",
+        card.querySelector("h3")?.dataset.fa || "",
+        card.querySelector("h3")?.dataset.en || "",
+        card.querySelector("p")?.dataset.fa || "",
+        card.querySelector("p")?.dataset.en || ""
+      ].join(" ").toLowerCase();
+
+      const matches = searchable.includes(query);
+
+      card.style.display = matches ? "" : "none";
+
+      if (matches) {
+        sectionCount++;
+        total++;
+      }
+    });
+
+    section.style.display = sectionCount > 0 ? "" : "none";
+  });
+
+  noResults.style.display = total === 0 ? "block" : "none";
+}
+
+searchInput.addEventListener("input", searchMenu);
+
+/* LANGUAGE */
 languageBtn.addEventListener("click", () => {
-  currentLanguage =
-    currentLanguage === "fa" ? "en" : "fa";
+  currentLanguage = currentLanguage === "fa" ? "en" : "fa";
 
   document.documentElement.lang = currentLanguage;
-
   document.documentElement.dir =
     currentLanguage === "fa" ? "rtl" : "ltr";
 
@@ -87,9 +138,19 @@ languageBtn.addEventListener("click", () => {
 
   languageBtn.textContent =
     currentLanguage === "fa" ? "EN" : "FA";
-
-  filterMenu();
 });
 
-/* ===== INITIAL ===== */
-filterMenu();
+/* TOP = ALL */
+window.addEventListener("scroll", () => {
+  if (window.scrollY < 120) {
+    categoryButtons.forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.category === "all"
+      );
+    });
+  }
+});
+
+/* INITIAL */
+searchMenu();
